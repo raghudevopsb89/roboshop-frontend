@@ -5,8 +5,8 @@ RUN npm install
 COPY frontend/ .
 RUN npm run build
 
-FROM nginx:1.25-alpine
-RUN rm /etc/nginx/conf.d/default.conf
-COPY nginx/nginx.conf /etc/nginx/conf.d/default.conf
+FROM nginx
+RUN rm -rf /etc/nginx/conf.d
+COPY nginx.conf /etc/nginx/nginx.conf
 COPY --from=build /app/out /usr/share/nginx/html
 EXPOSE 80
