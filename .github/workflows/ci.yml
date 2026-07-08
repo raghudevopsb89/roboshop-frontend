@@ -1,6 +1,11 @@
 name: Frontend CI Pipeline
 run-name: Frontend CI Pipeline
-on: [push, workflow_dispatch]
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
 
 jobs:
   lint:
