@@ -1,10 +1,16 @@
-.PHONY: build run docker-build clean
+.PHONY: build run unit-test integration-test docker-build clean
 
 build:
 	npm install && npm run build
 
 run:
 	npm run dev
+
+unit-test:
+	npm test
+
+integration-test:
+	@echo "No component integration tests for frontend (no owned datastore; integration is cross-service)."
 
 docker-build:
 	env
